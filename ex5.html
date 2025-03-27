@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Texto com Clique</title>
+</head>
+<body>
+    <div id="minhaDiv">Conteudo</div>
+    <button type="button" onclick="Mudarestado('minhaDiv')">Mostrar / Esconder</button>
+
+    <script>
+
+function Mudarestado(mu) {
+        var display = document.getElementById(mu).style.display;
+        if(display == "none")
+            document.getElementById(mu).style.display = 'block';
+        else
+            document.getElementById(mu).style.display = 'none';
+    }
+
+</script>
+</body>
+</html>

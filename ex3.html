@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Estilo do Texto com Clique</title>
+    <style>
+        .blue {
+            background-color: black;
+            color: rgb(25, 129, 226);
+        }
+    </style>
+</head>
+<body>
+    <p id="meuParagrafo">Texto.</p>
+    <button id="alterarEstilo">Clique para alterar o estilo</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("alterarEstilo");
+            const body = document.body;
+        
+            if (localStorage.getItem("blue") === "enabled") {
+                body.classList.add("blue");
+            }
+        
+            toggleButton.addEventListener("click", function () {
+                body.classList.toggle("blue");
+        
+                if (body.classList.contains("blue")) {
+                    localStorage.setItem("blue", "enabled");
+                } else {
+                    localStorage.setItem("blue", "disabled");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Estilo do Texto com Clique</title>
+    <style>
+        .blue {
+            background-color: black;
+            color: rgb(25, 129, 226);
+        }
+    </style>
+</head>
+<body>
+    <p id="meuParagrafo">Texto.</p>
+    <button onclick="alterarEstilo()">Clique para alterar o estilo</button>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("blue") === "enabled") {
+                document.body.classList.add("blue");
+            }
+        });
+
+
+        function alterarEstilo() {
+            const body = document.body;
+            body.classList.toggle("blue");
+
+            if (body.classList.contains("blue")) {
+                localStorage.setItem("blue", "enabled");
+            } else {
+                localStorage.setItem("blue", "disabled");
+            }
+        }
+    </script>
+</body>
+</html>
+
+-->

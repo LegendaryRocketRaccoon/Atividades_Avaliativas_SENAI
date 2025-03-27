@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Texto com Clique</title>
+</head>
+<body>
+    <p id="meuParagrafo">Texto original.</p>
+    <button onclick="alterarTexto()">Clique para alterar o texto</button>
+
+    <script>
+        let textoOriginal = "Texto original.";
+        let textoAlternativo = "Texto alterado.";
+        let textoAtualOriginal = true;
+
+        function alterarTexto() {
+            const paragrafo = document.getElementById("meuParagrafo");
+            if (textoAtualOriginal) {
+                paragrafo.textContent = textoAlternativo;
+            } else {
+                paragrafo.textContent = textoOriginal;
+            }
+            textoAtualOriginal = !textoAtualOriginal;
+        }
+    </script>
+</body>
+</html>

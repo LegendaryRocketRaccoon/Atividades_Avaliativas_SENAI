@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar e Remover Itens da Lista</title>
+</head>
+<body>
+    <h2>Lista:</h2>
+    <ul id="minhaLista">
+
+    </ul>
+
+    <input type="text" id="novoItem" placeholder="Digite um item">
+    <button onclick="adicionarItem()">Adicionar</button>
+    <button onclick="removerItem()">Remover último</button>
+
+    <script>
+        function adicionarItem() {
+            const lista = document.getElementById("minhaLista");
+            const novoItemTexto = document.getElementById("novoItem").value;
+
+            if (novoItemTexto.trim() !== "") {
+                const novoItem = document.createElement("li");
+                novoItem.textContent = novoItemTexto;
+                lista.appendChild(novoItem);
+                document.getElementById("novoItem").value = "";
+            } else {
+                alert("Digite um item para adicionar!");
+            }
+        }
+
+        function removerItem() {
+            const lista = document.getElementById("minhaLista");
+            if (lista.lastChild) {
+                lista.removeChild(lista.lastChild);
+            } else {
+                alert("Não há itens para remover");
+            }
+        }
+    </script>
+</body>
+</html>

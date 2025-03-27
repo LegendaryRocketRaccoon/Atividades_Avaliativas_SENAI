@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Validação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .erro {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulário de Validação</h1>
+    <form onsubmit="return validarFormulario()">
+        <label for="nome">Digite seu nome:</label><br>
+        <input type="text" id="nome" name="nome"><br>
+        <label for="nome">Digite a sua senha:</label><br>
+        <input type="number" id="senha" name="senha"><br>
+        <span id="mensagemErro" class="erro"></span><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        function validarFormulario() {
+            const nome = document.getElementById('nome').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+            const mensagemErro = document.getElementById('mensagemErro');
+
+            if (nome === "" || senha === "") {
+                mensagemErro.textContent = "Preencha todos os campos.";
+                return false;
+            } else if(nome != "" || senha != "") {
+                mensagemErro.textContent = "";
+                alert("Formulário enviado com sucesso!");
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
